@@ -29,7 +29,7 @@ t.speed("fastest")
 t.setpos(-200, -250)
 number_dots = 100
 
-for number_dots in range(1, number_dots + 1 ):
+for number_dots in range(1, number_dots + 1):
     t.dot(20, random.choice(color_list))
     t.forward(30)
 
