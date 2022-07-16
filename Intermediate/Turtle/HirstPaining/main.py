@@ -22,17 +22,17 @@ color_list = [(197, 13, 32), (249, 237, 21), (39, 77, 188), (238, 227, 5), (39, 
               (226, 19, 120), (74, 9, 31), (60, 15, 8), (223, 141, 208), (11, 97, 62), (220, 160, 10), (18, 18, 43),
               (52, 211, 230), (11, 228, 239), (80, 73, 214), (238, 156, 217), (73, 212, 168), (81, 234, 202),
               (61, 233, 241), (5, 67, 42)]
+
 t = Turtle()
 t.penup()           # hide the tracing mark
 t.hideturtle()      # hide the cursor
 t.speed("fastest")
 t.setpos(-200, -250)
-number_dots = 100
 
+number_dots = 100
 for number_dots in range(1, number_dots + 1):
     t.dot(20, random.choice(color_list))
     t.forward(30)
-
     if number_dots % 10 == 0:  # at the last dot
         t.setheading(90)  # set the head up
         t.forward(40)     # go north
