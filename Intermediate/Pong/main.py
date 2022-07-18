@@ -49,4 +49,8 @@ while game_is_on:
         ball.reset_position()
         scoreboard.update_right_score()
 
+    if scoreboard.left_score == 4 or scoreboard.right_score  == 4:
+        scoreboard.gameover()
+        ball.goto(0,0)
+
 screen.exitonclick()
