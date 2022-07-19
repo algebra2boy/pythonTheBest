@@ -38,13 +38,14 @@ while game_is_on:
 
     # Detecting if the snake hits the hall
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-        game_is_on = False
-        board.game_over()
+        board.reset_board()
+        snake.reset()
 
     # Detect collision with tail.
     for square in snake.squares[1:]:
         # if any of the body has a close distance with the head
         if snake.head.distance(square) < 10:
-            game_is_on = False
-            board.game_over()
+            board.reset_board()
+            snake.reset()
+
 screen.exitonclick()
