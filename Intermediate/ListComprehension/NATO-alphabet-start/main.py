@@ -23,10 +23,9 @@ for (index, row) in student_data_frame.iterrows():
 data = pandas.read_csv("nato_phonetic_alphabet.csv")
 # creating a dictionary with the following {'A': 'Alfa', 'B': 'Bravo'}
 alphabet_dict = {row.letter:row.code for (index, row) in data.iterrows()}
-print(alphabet_dict)
+# print(alphabet_dict)
 # {'A': 'Alfa', 'B': 'Bravo', 'C': 'Charlie', 'D': 'Delta', 'E': 'Echo', 'F': 'Foxtrot', 'G': 'Golf', 'H': 'Hotel', 'I': 'India', 'J': 'Juliet', 'K': 'Kilo', 'L': 'Lima', 'M': 'Mike', 'N': 'November', 'O': 'Oscar', 'P': 'Papa', 'Q': 'Quebec', 'R': 'Romeo', 'S': 'Sierra', 'T': 'Tango', 'U': 'Uniform', 'V': 'Victor', 'W': 'Whiskey', 'X': 'X-ray', 'Y': 'Yankee', 'Z': 'Zulu'}
 
-user_words = input("Enter a word, please!:").upper()
 # for example: if the word is hello
 '''
 we would need to traverse the string 'hello' and letter by letter
@@ -36,5 +35,15 @@ l -> alphabet_dict[l] = Lima
 l -> alphabet_dict[l] = Lima
 o -> alphabet_dict[o] = Oscar
 '''
-match_letter_dict = [alphabet_dict[letter] for letter in user_words]
-print(match_letter_dict)
+def generate_phonetic():
+    user_words = input("Enter a word, please!:").upper()
+    try:
+        match_letter_dict = [alphabet_dict[letter] for letter in user_words]
+    except KeyError:
+        print("Sorry, only letters in teh alphabet please.")
+        # the function calls itself to repeat (act as a loop)
+        generate_phonetic()
+    else:
+        print(match_letter_dict)
+
+generate_phonetic()
