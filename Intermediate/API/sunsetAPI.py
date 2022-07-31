@@ -6,5 +6,4 @@ Parameter = {
 }
 
 response = requests.get(url="https://api.sunrise-sunset.org/json", params=Parameter)
-print(response)
 print(response.json())
